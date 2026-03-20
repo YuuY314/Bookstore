@@ -5,6 +5,31 @@
     font-family: "Inter", Helvetica, Arial, sans-serif;
 }
 
+.buttons {
+    padding-block: 16px;
+    padding-inline: 40px;
+    background-color: white;
+    border-radius: 240px;
+    width: 300px;
+    text-align: center;
+    transition: .5s ease-in-out;
+}
+
+.buttons:hover {
+    background-color: #E53935;
+    color: white;
+}
+
+.book_cover {
+    height: 250px;
+    width: 175px;
+}
+
+html {
+    scroll-padding-top: 100px;
+    scroll-behavior: smooth;
+}
+
 body {
     width: 100%;
 }
@@ -12,4 +37,209 @@ body {
 a {
     text-decoration: none;
     color: #000;
+}
+
+header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    font-size: 2rem;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+}
+
+header nav a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header #user {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+}
+
+main {
+    padding-top: 100px;
+}
+
+.contact {
+    height: 60vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
+}
+
+.contact_text {
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact_text h1 {
+    font-size: 2.5rem;
+}
+
+.contact_text p {
+    font-size: 1.5rem;
+}
+
+.contact_form {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.half_input {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+}
+
+.input_group {
+    position: relative;
+    width: 100%;
+}
+
+.input {
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 1.25rem;
+    caret-color: #000;
+    border: 3px solid #D3D3D3;
+    outline: none;
+    width: 100%;
+    cursor: text;
+}
+
+.user_label {
+    position: absolute;
+    left: 15px;
+    pointer-events: none;
+    color: #666;
+    top: 50%;
+    font-size: 1.25rem;
+    transform: translateY(-50%);
+    transition: .3s ease;
+    z-index: 1;
+}
+
+.input:focus + label, .input:not(:placeholder-shown) + label {
+    transform: translateY(-50%);
+    background-color: white;
+    top: 0;
+    padding: 0 6px;
+    color: #333;
+}
+
+.textarea {
+    height: 200px;
+    resize: none;
+}
+
+.textarea + .user_label {
+    top: 15%;
+}
+
+.submit {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.25rem;
+    border: 0;
+    background-color: #E53935;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.submit:hover {
+    background-color: black;
+}
+
+footer {
+    height: 40vh;
+    background-color: #E53935;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    padding-top: 30px;
+}
+
+footer h1 {
+    font-size: 1.5rem;
+}
+
+footer a, footer p {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.footer_column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+footer .socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+footer .logo {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .logo p {
+    width: 70%;
+    text-align: center;
+}
+
+footer .follow_us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .follow_us > div {
+    display: flex;
+    gap: 16px;
+}
+
+footer .follow_us h1 {
+    font-size: 1.5rem;
+}
+
+footer .follow_us i {
+    font-size: 2rem;
 }

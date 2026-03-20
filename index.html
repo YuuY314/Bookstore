@@ -6,16 +6,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <title>Bookstore</title>
-    <link rel="shortcut icon" href="img/logo.png" type="png">
+    <link rel="shortcut icon" href="img/white_logo.png" type="png">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
     <header>
-        <div id="logo">
+        <div class="logo">
             <a href="index.html">
-                <img src="img/logo.png">
+                <img src="img/black_logo.png">
                 <h1>Bookstore</h1>
             </a>
         </div>
@@ -28,16 +29,177 @@
             <a href="">
                 <img src="img/shopping_cart.png">
             </a>
-            <a href="">
+            <a href="register.html">
                 <img src="img/user.png">
             </a>
         </div>
     </header>
     <main>
-
+        <div id="home"></div>
+        <section id="banner">
+            <div id="banner_text">
+                <h1>Descubra sua próxima leitura com a Bookstore</h1>
+                <a href="#books" class="buttons">Explorar livros</a>
+            </div>
+        </section>
+        <div id="books"></div>
+        <section id="top_rated">
+            <div id="top_rated_title">
+                <h1>Em Destaque</h1>
+                <p>Veja o que os leitores estão curtindo</p>
+            </div>
+            <div id="top_rated_container">
+                <div class="top_rated_book">
+                    <a href="">
+                        <img src="img/top_rated/top_rated_1.png" class="book_cover">
+                        <div class="top_rated_book_info">
+                            <p class="top_rated_book_genre">Fantasia</p>
+                            <p class="top_rated_book_title">A Guerra dos Tronos</p>
+                            <p class="top_rated_book_author">George R. R. Martin</p>
+                            <p class="top_rated_book_price">R$ 69,99</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="top_rated_book">
+                    <a href="">
+                        <img src="img/top_rated/top_rated_1.png" class="book_cover">
+                        <div class="top_rated_book_info">
+                            <p class="top_rated_book_genre">Fantasia</p>
+                            <p class="top_rated_book_title">A Guerra dos Tronos</p>
+                            <p class="top_rated_book_author">George R. R. Martin</p>
+                            <p class="top_rated_book_price">R$ 69,99</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="top_rated_book">
+                    <a href="">
+                        <img src="img/top_rated/top_rated_1.png" class="book_cover">
+                        <div class="top_rated_book_info">
+                            <p class="top_rated_book_genre">Fantasia</p>
+                            <p class="top_rated_book_title">A Guerra dos Tronos</p>
+                            <p class="top_rated_book_author">George R. R. Martin</p>
+                            <p class="top_rated_book_price">R$ 69,99</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="top_rated_book">
+                    <a href="">
+                        <img src="img/top_rated/top_rated_1.png" class="book_cover">
+                        <div class="top_rated_book_info">
+                            <p class="top_rated_book_genre">Fantasia</p>
+                            <p class="top_rated_book_title">A Guerra dos Tronos</p>
+                            <p class="top_rated_book_author">George R. R. Martin</p>
+                            <p class="top_rated_book_price">R$ 69,99</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="top_rated_book">
+                    <a href="">
+                        <img src="img/top_rated/top_rated_1.png" class="book_cover">
+                        <div class="top_rated_book_info">
+                            <p class="top_rated_book_genre">Fantasia</p>
+                            <p class="top_rated_book_title">A Guerra dos Tronos</p>
+                            <p class="top_rated_book_author">George R. R. Martin</p>
+                            <p class="top_rated_book_price">R$ 69,99</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="new_releases">
+            <h1>Lançamentos</h1>
+            <div id="new_releases_container">
+                <i class="fa-solid fa-angle-left"></i>
+                <a href="">
+                    <img src="img/top_rated/top_rated_1.png">
+                </a>
+                <a href="">
+                    <img src="img/top_rated/top_rated_1.png">
+                </a>
+                <a href="">
+                    <img src="img/top_rated/top_rated_1.png">
+                </a>
+                <a href="">
+                    <img src="img/top_rated/top_rated_1.png">
+                </a>
+                <a href="">
+                    <img src="img/top_rated/top_rated_1.png">
+                </a>
+                <a href="">
+                    <img src="img/top_rated/top_rated_1.png">
+                </a>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+        </section>
+        <div id="contact"></div>
+        <section class="contact">
+            <div class="contact_text">
+                <h1>Entre em Contato</h1>
+                <p>Tem alguma dúvida, sugestão ou precisa de ajuda para encontrar o livro perfeito?</p>
+                <p>Preencha o formulário abaixo e nossa equipe responderá o mais rápido possível.</p>
+            </div>
+            <form class="contact_form">
+                <div class="half_input">
+                    <div class="input_group">
+                        <input type="text" class="input" name="name" id="name" placeholder=" ">
+                        <label for="name" class="user_label">Nome</label>
+                    </div>
+                    <div class="input_group">
+                        <input type="email" class="input" name="email" id="email" placeholder=" ">
+                        <label for="email" class="user_label">E-mail</label>
+                    </div>
+                </div>
+                <div class="input_group">
+                    <input type="text" class="input" name="subject" id="subject" placeholder=" ">
+                    <label for="subject" class="user_label">Assunto</label>
+                </div>
+                <div class="input_group">
+                    <textarea name="message" id="message" class="input textarea" placeholder=" "></textarea>
+                    <label for="message" class="user_label">Escreva sua mensagem</label>
+                </div>
+                <input type="submit" class="submit">
+            </form>
+        </section>
     </main>
     <footer>
-
+        <div class="socials">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/white_logo.png">
+                    <h1>Bookstore</h1>
+                </a>
+                <p>Desperte o seu hábito de leitura conosco!</p>
+            </div>
+            <div class="follow_us">
+                <h1>Siga-nos</h1>
+                <div>
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_column">
+            <h1>Nossa Estante</h1>
+            <a href="">Mais vendidos</a>
+            <a href="">Lançamentos</a>
+            <a href="">Promoções</a>
+        </div>
+        <div class="footer_column">
+            <h1>Sobre Nós</h1>
+            <a href="">Quem Somos</a>
+            <a href="">Blog</a>
+            <a href="">Eventos</a>
+        </div>
+        <div class="footer_column">
+            <h1>Ajuda</h1>
+            <a href="">Suporte</a>
+            <a href="">FAQ</a>
+        </div>
+        <div class="footer_column">
+            <h1>Contato</h1>
+            <p>+55 (11) 4004-4004</p>
+            <p>contato@bookstore.com</p>
+        </div>
     </footer>
 </body>
 </html>
