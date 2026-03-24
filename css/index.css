@@ -112,6 +112,11 @@ main {
     cursor: pointer;
 }
 
+.book_carousel_container img {
+    height: 269px;
+    width: 187px;
+}
+
 .contact {
     height: 60vh;
     display: flex;
