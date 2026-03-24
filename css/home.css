@@ -63,11 +63,16 @@
     transform: translateY(-20px);
 }
 
+.top_rated_book:hover > a > img {
+    background-color: #A7A7A7;
+}
+
 .top_rated_book img {
     padding-block: 16px;
     padding-inline: 14px;
     background-color: #E7E7E7;
     border-radius: 14px;
+    transition: .5s ease-in-out;
 }
 
 .top_rated_book_info {
@@ -90,30 +95,4 @@
 
 .top_rated_book_author, .top_rated_book_price {
     font-size: 1rem;
-}
-
-#new_releases {
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#new_releases h1 {
-    font-size: 2.5rem;
-}
-
-#new_releases_container {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-#new_releases_container i {
-    font-size: 50px;
-    cursor: pointer;
 }

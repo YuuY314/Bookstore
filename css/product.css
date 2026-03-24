@@ -1,0 +1,63 @@
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product_container {
+    display: flex;
+    gap: 70px;
+}
+
+.product_cover {
+    height: 500px;
+}
+
+.product_info {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product_title h1 {
+    font-size: 3rem;
+}
+
+.product_title p {
+    font-size: 1.5rem;
+}
+
+.product_review {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.product_price {
+    font-size: 2.5rem;
+}
+
+.product_details {
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product_info .buttons {
+    width: 250px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    padding-inline: 20px;
+    padding-block: 10px;
+    background-color: #E53935;
+    color: white;
+}
+
+.product_info .buttons:hover {
+    background-color: black;
+}
