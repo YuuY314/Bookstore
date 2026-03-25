@@ -1,3 +1,5 @@
+<?php include "php/data.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,33 +15,13 @@
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="img/black_logo.png">
-                <h1>Bookstore</h1>
-            </a>
-        </div>
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="shelf.html">Livros</a>
-            <a href="#contact">Contato</a>
-        </nav>
-        <div id="user">
-            <a href="">
-                <img src="img/shopping_cart.png">
-            </a>
-            <a href="register.html">
-                <img src="img/user.png">
-            </a>
-        </div>
-    </header>
+    <?php require "php/partials/header.php"; ?>
     <main>
         <div id="home"></div>
         <section id="banner">
             <div id="banner_text">
                 <h1>Descubra sua próxima leitura com a Bookstore</h1>
-                <a href="#books" class="buttons">Explorar livros</a>
+                <a href="shelf.php" class="buttons">Explorar livros</a>
             </div>
         </section>
         <div id="books"></div>
@@ -50,7 +32,7 @@
             </div>
             <div id="top_rated_container">
                 <div class="book">
-                    <a href="product.html">
+                    <a href="product.php">
                         <img src="img/top_rated/verity.jpg" class="book_cover">
                         <div class="book_info">
                             <p class="book_genre">Suspense</p>
@@ -61,7 +43,7 @@
                     </a>
                 </div>
                 <div class="book">
-                    <a href="product.html">
+                    <a href="product.php">
                         <img src="img/top_rated/a_biblioteca_da_meia_noite.jpg" class="book_cover">
                         <div class="book_info">
                             <p class="book_genre">Ficção Contemporânea</p>
@@ -72,7 +54,7 @@
                     </a>
                 </div>
                 <div class="book">
-                    <a href="product.html">
+                    <a href="product.php">
                         <img src="img/top_rated/corte_de_espinhos_e_rosas.jpg" class="book_cover">
                         <div class="book_info">
                             <p class="book_genre">Fantasia</p>
@@ -83,7 +65,7 @@
                     </a>
                 </div>
                 <div class="book">
-                    <a href="product.html">
+                    <a href="product.php">
                         <img src="img/top_rated/a_guerra_dos_tronos.jpg" class="book_cover">
                         <div class="book_info">
                             <p class="book_genre">Fantasia</p>
@@ -94,7 +76,7 @@
                     </a>
                 </div>
                 <div class="book">
-                    <a href="product.html">
+                    <a href="product.php">
                         <img src="img/top_rated/o_hobbit.jpg" class="book_cover">
                         <div class="book_info">
                             <p class="book_genre">Fantasia</p>
@@ -110,22 +92,22 @@
             <h1>Lançamentos</h1>
             <div class="book_carousel_container">
                 <i class="fa-solid fa-angle-left left"></i>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/new_releases/mulher_em_queda.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/new_releases/querida_debbie.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/new_releases/suite_toquio.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/new_releases/os_sete_maridos_de_evelyn_hugo.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/new_releases/o_principe_cruel.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/new_releases/quinze_dias.jpg">
                 </a>
                 <i class="fa-solid fa-angle-right right"></i>
@@ -135,22 +117,22 @@
             <h1>Clássicos</h1>
             <div class="book_carousel_container">
                 <i class="fa-solid fa-angle-left"></i>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/classics/dom_casmurro.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/classics/1984.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/classics/o_grande_gatsby.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/classics/crime_e_castigo.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/classics/orgulho_e_preconceito.jpg">
                 </a>
-                <a href="product.html">
+                <a href="product.php">
                     <img src="img/classics/frankenstein.jpg">
                 </a>
                 <i class="fa-solid fa-angle-right"></i>
@@ -163,68 +145,29 @@
                 <p>Tem alguma dúvida, sugestão ou precisa de ajuda para encontrar o livro perfeito?</p>
                 <p>Preencha o formulário abaixo e nossa equipe responderá o mais rápido possível.</p>
             </div>
-            <form class="contact_form">
+            <form class="contact_form" action="process_contact.php" method="POST">
                 <div class="half_input">
                     <div class="input_group">
-                        <input type="text" class="input" name="name" id="name" placeholder=" ">
+                        <input type="text" class="input" name="name" id="name" placeholder=" " required>
                         <label for="name" class="user_label">Nome</label>
                     </div>
                     <div class="input_group">
-                        <input type="email" class="input" name="email" id="email" placeholder=" ">
+                        <input type="email" class="input" name="email" id="email" placeholder=" " required>
                         <label for="email" class="user_label">E-mail</label>
                     </div>
                 </div>
                 <div class="input_group">
-                    <input type="text" class="input" name="subject" id="subject" placeholder=" ">
+                    <input type="text" class="input" name="subject" id="subject" placeholder=" " required>
                     <label for="subject" class="user_label">Assunto</label>
                 </div>
                 <div class="input_group">
-                    <textarea name="message" id="message" class="input textarea" placeholder=" "></textarea>
+                    <textarea name="message" id="message" class="input textarea" placeholder=" " required></textarea>
                     <label for="message" class="user_label">Escreva sua mensagem</label>
                 </div>
                 <input type="submit" class="submit">
             </form>
         </section>
     </main>
-    <footer>
-        <div class="socials">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="img/white_logo.png">
-                    <h1>Bookstore</h1>
-                </a>
-                <p>Desperte o seu hábito de leitura conosco!</p>
-            </div>
-            <div class="follow_us">
-                <h1>Siga-nos</h1>
-                <div>
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer_column">
-            <h1>Nossa Estante</h1>
-            <a href="">Mais vendidos</a>
-            <a href="">Lançamentos</a>
-            <a href="">Promoções</a>
-        </div>
-        <div class="footer_column">
-            <h1>Sobre Nós</h1>
-            <a href="">Quem Somos</a>
-            <a href="">Blog</a>
-            <a href="">Eventos</a>
-        </div>
-        <div class="footer_column">
-            <h1>Ajuda</h1>
-            <a href="">Suporte</a>
-            <a href="">FAQ</a>
-        </div>
-        <div class="footer_column">
-            <h1>Contato</h1>
-            <p>+55 (11) 4004-4004</p>
-            <p>contato@bookstore.com</p>
-        </div>
-    </footer>
+    <?php require "php/partials/footer.php"; ?>
 </body>
 </html>

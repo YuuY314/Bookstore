@@ -1,3 +1,5 @@
+<?php include "php/data.php"; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,27 +15,7 @@
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="img/black_logo.png">
-                <h1>Bookstore</h1>
-            </a>
-        </div>
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="shelf.html">Livros</a>
-            <a href="index.html#contact">Contato</a>
-        </nav>
-        <div id="user">
-            <a href="">
-                <img src="img/shopping_cart.png">
-            </a>
-            <a href="register.html">
-                <img src="img/user.png">
-            </a>
-        </div>
-    </header>
+    <?php require "php/partials/header.php"; ?>
     <main>
         <form>
             <h1>Cadastro</h1>
@@ -56,45 +38,6 @@
             <input type="submit" class="submit">
         </form>
     </main>
-    <footer>
-        <div class="socials">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="img/white_logo.png">
-                    <h1>Bookstore</h1>
-                </a>
-                <p>Desperte o seu hábito de leitura conosco!</p>
-            </div>
-            <div class="follow_us">
-                <h1>Siga-nos</h1>
-                <div>
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer_column">
-            <h1>Nossa Estante</h1>
-            <a href="">Mais vendidos</a>
-            <a href="">Lançamentos</a>
-            <a href="">Promoções</a>
-        </div>
-        <div class="footer_column">
-            <h1>Sobre Nós</h1>
-            <a href="">Quem Somos</a>
-            <a href="">Blog</a>
-            <a href="">Eventos</a>
-        </div>
-        <div class="footer_column">
-            <h1>Ajuda</h1>
-            <a href="">Suporte</a>
-            <a href="">FAQ</a>
-        </div>
-        <div class="footer_column">
-            <h1>Contato</h1>
-            <p>+55 (11) 4004-4004</p>
-            <p>contato@bookstore.com</p>
-        </div>
-    </footer>
+    <?php require "php/partials/footer.php"; ?>
 </body>
 </html>
