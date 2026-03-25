@@ -1,0 +1,53 @@
+main {
+    height: auto;
+    padding-bottom: 100px;
+}
+
+.shelf_navbar {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-inline: 50px;
+    padding-block: 30px;
+}
+
+.shelf_navbar_title h1 {
+    font-size: 3rem;
+}
+
+.shelf_navbar_title p {
+    font-size: 1.5rem;
+}
+
+.shelf_navbar_container {
+    display: flex;
+    gap: 20px;
+}
+
+.shelf_navbar_container .input_group {
+    width: 30%;
+}
+
+.shelf {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 0 auto;
+    max-width: 95%;
+}
+
+.filter_buttons {
+    border: 3px solid #D3D3D3;
+    border-radius: 240px;
+    padding-inline: 20px;
+    padding-block: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.filter_buttons.focus {
+    background-color: #E53935;
+    color: white;
+}

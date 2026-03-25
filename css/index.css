@@ -86,6 +86,50 @@ main {
     padding-top: 100px;
 }
 
+.book {
+    cursor: pointer;
+    width: 180px;
+    transition: .5s ease-in-out;
+}
+
+.book:hover {
+    transform: translateY(-20px);
+}
+
+.book:hover > a > img {
+    background-color: #A7A7A7;
+}
+
+.book img {
+    padding-block: 16px;
+    padding-inline: 14px;
+    background-color: #E7E7E7;
+    border-radius: 14px;
+    transition: .5s ease-in-out;
+}
+
+.book_info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.book_info p {
+    font-weight: bold;
+}
+
+.book_genre {
+    font-size: 1.125rem;
+}
+
+.book_title {
+    font-size: 1.5rem;
+}
+
+.book_author, .book_price {
+    font-size: 1rem;
+}
+
 .book_carousel {
     height: 50vh;
     display: flex;
