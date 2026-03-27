@@ -9,17 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <title>Cadastro</title>
+    <title>Contato</title>
     <link rel="shortcut icon" href="img/white_logo.png" type="png">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/contact.css">
     <script src="js/index.js" defer></script>
 </head>
 <body>
-    <?php require "php/partials/header.php"; ?>
+    <?php require "php/partials/header.php" ?>
     <main>
         <form>
-            <h1>Cadastro</h1>
+            <h1>Contato</h1>
             <div class="input_group">
                 <input type="text" class="input" name="name" id="name" placeholder=" " required>
                 <label for="name" class="user_label">Nome</label>
@@ -29,12 +29,12 @@
                 <label for="email" class="user_label">E-mail</label>
             </div>
             <div class="input_group">
-                <input type="password" class="input" name="password" id="password" placeholder=" " required>
-                <label for="password" class="user_label">Senha</label>
+                <input type="text" class="input" name="subject" id="subject" placeholder=" " required>
+                <label for="subject" class="user_label">Assunto</label>
             </div>
             <div class="input_group">
-                <input type="password" class="input" name="confirm" id="confirm" placeholder=" " required>
-                <label for="confirm" class="user_label">Confirmar Senha</label>
+                <textarea name="message" id="message" class="input textarea" placeholder=" " required></textarea>
+                <label for="message" class="user_label">Escreva sua mensagem</label>
             </div>
             <input type="submit" class="submit">
         </form>

@@ -1,4 +1,11 @@
-<?php include "php/data.php"; ?>
+<?php
+include "php/data.php";
+
+// print "<pre>";
+// print_r($categories);
+// print_r($books);
+// print "</pre>";
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,6 +20,7 @@
     <link rel="shortcut icon" href="img/white_logo.png" type="png">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/shelf.css">
+    <script src="js/index.js" defer></script>
     <script src="js/shelf.js" defer></script>
 </head>
 <body>
@@ -29,17 +37,28 @@
                     <label for="search" class="user_label">Pesquisa</label>
                 </div>
                 <button class="filter_buttons focus">Tudo</button>
-                <button class="filter_buttons">Clássico</button>
-                <button class="filter_buttons">Fantasia</button>
-                <button class="filter_buttons">Romance</button>
-                <button class="filter_buttons">Suspense</button>
-                <button class="filter_buttons">Ficção Científica</button>
+                <?php
+                    foreach($categories as $category => $value_category){
+                        print "<button class='filter_buttons' id='$category'>$value_category</button>";
+                    }
+                ?>
+                <a href="register_book.php" class="buttons">Cadastrar Livro</a>
             </div>
         </section>
         <section class="shelf">
-            <?php 
-                for($i = 0; $i < 30; $i++){
-                    require "php/partials/book.php";
+            <?php
+                foreach($books as $book){
+                    echo "<div class='book'>
+                            <a href='product.php'>
+                                <img src='$book[cover_img_path]' class='book_cover'>
+                                <div class='book_info'>
+                                    <p class='book_genre'>$book[genre]</p>
+                                    <p class='book_title'>$book[title]</p>
+                                    <p class='book_author'>$book[author]</p>
+                                    <p class='book_price'>R$ $book[price]</p>
+                                </div>
+                            </a>
+                        </div>";
                 }
             ?>
         </section>

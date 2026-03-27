@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="img/white_logo.png" type="png">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/product.css">
+    <script src="js/index.js" defer></script>
 </head>
 <body>
     <?php require "php/partials/header.php"; ?>

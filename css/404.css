@@ -21,5 +21,5 @@ main a {
 }
 
 main a:hover {
-    color: #E53935;
+    color: var(--focus);
 }

@@ -8,14 +8,17 @@
     <nav>
         <a href="index.php">Início</a>
         <a href="shelf.php">Livros</a>
-        <a href="index.php#contact">Contato</a>
+        <a href="contact.php">Contato</a>
     </nav>
     <div id="user">
+        <button id="toggle_theme">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
         <a href="">
-            <img src="img/shopping_cart.png">
+            <i class="fa-solid fa-cart-shopping"></i>
         </a>
-        <a href="register.php">
-            <img src="img/user.png">
+        <a href="login.php">
+            <i class="fa-solid fa-user"></i>
         </a>
     </div>
 </header>

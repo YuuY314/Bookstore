@@ -17,3 +17,7 @@ form {
     border: 5px solid var(--form_border);
     padding-inline: 50px;
 }
+
+form a {
+    text-decoration: underline;
+}

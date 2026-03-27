@@ -54,10 +54,10 @@ main {
     font-size: 1.25rem;
     padding-inline: 20px;
     padding-block: 10px;
-    background-color: #E53935;
-    color: white;
+    background-color: var(--focus);
+    color: var(--background);
 }
 
 .product_info .buttons:hover {
-    background-color: black;
+    background-color: var(--text);
 }

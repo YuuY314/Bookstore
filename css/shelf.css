@@ -31,7 +31,7 @@ main {
 
 .shelf {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 50px;
     margin: 0 auto;
@@ -39,15 +39,28 @@ main {
 }
 
 .filter_buttons {
-    border: 3px solid #D3D3D3;
+    border: 3px solid var(--input_border);
     border-radius: 240px;
     padding-inline: 20px;
     padding-block: 10px;
     cursor: pointer;
-    background-color: white;
+    background-color: var(--background);
+    color: var(--text);
+    font-weight: bold;
 }
 
 .filter_buttons.focus {
-    background-color: #E53935;
-    color: white;
+    background-color: var(--focus);
+    color: var(--background);
+}
+
+.shelf_navbar_container a {
+    background-color: var(--focus);
+    color: var(--background);
+    font-weight: bold;
+    transition: .5s ease-in-out;
+}
+
+.shelf_navbar_container a:hover {
+    background-color: var(--text);
 }
