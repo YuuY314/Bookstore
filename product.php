@@ -34,6 +34,24 @@ if(isset($_GET["id"])){
             <?php
                 foreach($_SESSION["books"] as $book){
                     if($book["id"] == $id){
+                        $rating = $book["rating"] ?? 0;
+
+                        $full = floor($rating);
+                        $hasDecimal = ($rating - $full) > 0;
+
+                        $half = $hasDecimal ? 1 : 0;
+
+                        if ($rating == 5) {
+                            $full = 5;
+                            $half = 0;
+                        }
+
+                        $empty = 5 - $full - $half;
+
+                        $stars = str_repeat("<i class='fa-solid fa-star'></i>", $full);
+                        $stars .= str_repeat("<i class='fa-solid fa-star-half-stroke'></i>", $half);
+                        $stars .= str_repeat("<i class='fa-regular fa-star'></i>", $empty);
+
                         echo "<img src='" . $book["cover_img_path"] . "' class='product_cover'>
                               <div class='product_info'>
                                     <div class='product_title'>
@@ -42,23 +60,19 @@ if(isset($_GET["id"])){
                                     </div>
                                     <div class='product_review'>
                                         <div>
-                                            <i class='fa-solid fa-star'></i>
-                                            <i class='fa-solid fa-star'></i>
-                                            <i class='fa-solid fa-star'></i>
-                                            <i class='fa-solid fa-star'></i>
-                                            <i class='fa-solid fa-star-half'></i>
+                                            $stars
                                         </div>
-                                        <p>4.8 (314)</p>
+                                        <p>" . $book["rating"] . " (" . $book["review_count"] . ")</p>
                                     </div>
                                     <div class='product_price'>
                                         R$ ". $book["price"] .
                                     "</div>
                                     <div class='product_details'>
                                         <p>Gênero: ". $book["genre"] . "</p>
-                                        <p>Editora: Suma</p>
-                                        <p>Data de publicação: 29/11/2019</p>
-                                        <p>Quantidade de páginas: 898</p>
-                                        <p>Dimensões: 22,8 x 15,6 x 3,2 cm</p>
+                                        <p>Editora: ". $book["publisher"] . "</p>
+                                        <p>Data de publicação: " . $book["release_date"] . "</p>
+                                        <p>Quantidade de páginas: " . $book["page_count"] . "</p>
+                                        <p>Dimensões: " . $book["dimensions"] . " cm</p>
                                     </div>
                                     <a href='' class='buttons'>Adicionar ao carrinho</a>
                                 </div>";

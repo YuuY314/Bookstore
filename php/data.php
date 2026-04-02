@@ -186,8 +186,8 @@ $categories = [
 
 $childrenMap = [];
 
-foreach ($categories as $category) {
-    if ($category["parent_id"] != null) {
+foreach($categories as $category){
+    if($category["parent_id"] != null){
         $childrenMap[$category["parent_id"]][] = $category;
     }
 }
@@ -200,9 +200,11 @@ $books = [
         "genre" => "Fantasia",
         "price" => 64.99,
         "cover_img_path" => "img/books/a_guerra_dos_tronos.jpg",
+        "rating" => 4.8,
+        "review_count" => 314,
         "publisher" => "Suma",
-        "release_date" => "06/08/1996",
-        "pages" => 898,
+        "release_date" => "25/03/2019",
+        "page_count" => 592,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -212,10 +214,12 @@ $books = [
         "genre" => "Suspense",
         "price" => 42.99,
         "cover_img_path" => "img/books/verity.jpg",
+        "rating" => 4.5,
+        "review_count" => 202,
         "publisher" => "Galera Record",
-        "release_date" => "07/09/2018",
-        "pages" => 336,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "release_date" => "09/03/2020",
+        "page_count" => 320,
+        "dimensions" => "21 x 13,5 x 1,8"
     ],
     [
         "id" => 3,
@@ -224,10 +228,12 @@ $books = [
         "genre" => "Ficção Contemporânea",
         "price" => 37.99,
         "cover_img_path" => "img/books/a_biblioteca_da_meia_noite.jpg",
+        "rating" => 4.6,
+        "review_count" => 247,
         "publisher" => "Bertrand Brasil",
-        "release_date" => "13/08/2020",
-        "pages" => 308,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "release_date" => "27/09/2021",
+        "page_count" => 308,
+        "dimensions" => "23 x 15,5 x 1,7"
     ],
     [
         "id" => 4,
@@ -236,10 +242,12 @@ $books = [
         "genre" => "Fantasia",
         "price" => 34.99,
         "cover_img_path" => "img/books/o-hobbit-harpercollins.jpg",
+        "rating" => 4.7,
+        "review_count" => 553,
         "publisher" => "HarperCollins",
-        "release_date" => "21/09/1937",
-        "pages" => 310,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "release_date" => "19/06/2019",
+        "page_count" => 336,
+        "dimensions" => "21,2 x 14 x 2,4"
     ],
     [
         "id" => 5,
@@ -248,9 +256,11 @@ $books = [
         "genre" => "Fantasia",
         "price" => 39.99,
         "cover_img_path" => "img/books/corte_de_espinhos_e_rosas.jpg",
+        "rating" => 4.2,
+        "review_count" => 152,
         "publisher" => "Galera Record",
         "release_date" => "05/05/2015",
-        "pages" => 432,
+        "page_count" => 432,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -260,9 +270,11 @@ $books = [
         "genre" => "Ficção Contemporânea",
         "price" => 79.99,
         "cover_img_path" => "img/books/mulher_em_queda.jpg",
+        "rating" => 4.4,
+        "review_count" => 52,
         "publisher" => "Galera Record",
         "release_date" => "02/01/2018",
-        "pages" => 448,
+        "page_count" => 448,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -272,9 +284,11 @@ $books = [
         "genre" => "Suspense",
         "price" => 69.99,
         "cover_img_path" => "img/books/querida_debbie.jpg",
+        "rating" => 4.1,
+        "review_count" => 35,
         "publisher" => "Arqueiro",
         "release_date" => "2022",
-        "pages" => 240,
+        "page_count" => 240,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -284,9 +298,11 @@ $books = [
         "genre" => "Ficção Contemporânea",
         "price" => 49.99,
         "cover_img_path" => "img/books/suite_toquio.jpg",
+        "rating" => 4.3,
+        "review_count" => 15,
         "publisher" => "Todavia",
         "release_date" => "2020",
-        "pages" => 192,
+        "page_count" => 192,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -296,9 +312,11 @@ $books = [
         "genre" => "Ficção Contemporânea",
         "price" => 54.99,
         "cover_img_path" => "img/books/os_sete_maridos_de_evelyn_hugo.jpg",
+        "rating" => 4.1,
+        "review_count" => 23,
         "publisher" => "Paralela",
         "release_date" => "13/06/2017",
-        "pages" => 360,
+        "page_count" => 360,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -308,9 +326,11 @@ $books = [
         "genre" => "Fantasia",
         "price" => 44.99,
         "cover_img_path" => "img/books/o-principe-cruel-galera-record.jpg",
+        "rating" => 4.0,
+        "review_count" => 123,
         "publisher" => "Galera Record",
         "release_date" => "02/01/2018",
-        "pages" => 384,
+        "page_count" => 384,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -320,9 +340,11 @@ $books = [
         "genre" => "Jovem Adulto",
         "price" => 34.99,
         "cover_img_path" => "img/books/quinze_dias.jpg",
+        "rating" => 4.2,
+        "review_count" => 13,
         "publisher" => "Alt",
         "release_date" => "2017",
-        "pages" => 192,
+        "page_count" => 192,
         "dimensions" => "22,8 x 15,6 x 3,2"
 
     ],
@@ -333,9 +355,11 @@ $books = [
         "genre" => "Romance",
         "price" => 24.99,
         "cover_img_path" => "img/books/dom_casmurro.jpg",
+        "rating" => 4.2,
+        "review_count" => 983,
         "publisher" => "Principis",
         "release_date" => "1899",
-        "pages" => 256,
+        "page_count" => 256,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -345,9 +369,11 @@ $books = [
         "genre" => "Ficção Distópica",
         "price" => 24.99,
         "cover_img_path" => "img/books/1984.jpg",
+        "rating" => 4.4,
+        "review_count" => 760,
         "publisher" => "Principis",
         "release_date" => "08/06/1949",
-        "pages" => 328,
+        "page_count" => 328,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -357,9 +383,11 @@ $books = [
         "genre" => "Romance",
         "price" => 37.99,
         "cover_img_path" => "img/books/o_grande_gatsby.jpg",
+        "rating" => 4.5,
+        "review_count" => 437,
         "publisher" => "Excelsior",
         "release_date" => "10/04/1925",
-        "pages" => 180,
+        "page_count" => 180,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -369,9 +397,11 @@ $books = [
         "genre" => "Romance",
         "price" => 59.99,
         "cover_img_path" => "img/books/crime_e_castigo.jpg",
+        "rating" => 4.3,
+        "review_count" => 326,
         "publisher" => "Editora 34",
         "release_date" => "1866",
-        "pages" => 576,
+        "page_count" => 576,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -381,9 +411,11 @@ $books = [
         "genre" => "Romance",
         "price" => 39.99,
         "cover_img_path" => "img/books/orgulho-e-preconceito-garnier.jpg",
+        "rating" => 4.6,
+        "review_count" => 236,
         "publisher" => "Garnier",
         "release_date" => "28/01/1813",
-        "pages" => 432,
+        "page_count" => 432,
         "dimensions" => "22,8 x 15,6 x 3,2"
     ],
     [
@@ -393,9 +425,25 @@ $books = [
         "genre" => "Terror",
         "price" => 34.99,
         "cover_img_path" => "img/books/frankenstein.jpg",
+        "rating" => 4.5,
+        "review_count" => 568,
         "publisher" => "Via Leitura",
         "release_date" => "01/01/1818",
-        "pages" => 280,
+        "page_count" => 280,
         "dimensions" => "22,8 x 15,6 x 3,2"
+    ],
+    [
+        "id" => 18,
+        "title" => "Cinquenta Tons de Cinza",
+        "author" => "E. L. James",
+        "genre" => "Romance",
+        "price" => 49.99,
+        "cover_img_path" => "img/books/cinquenta_tons_de_cinza.jpg",
+        "rating" => 2.5,
+        "review_count" => 572,
+        "publisher" => "Intríseca",
+        "release_date" => "17/07/2012",
+        "page_count" => 480,
+        "dimensions" => "23 x 16 x 2,3"
     ]
 ];
