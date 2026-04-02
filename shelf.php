@@ -1,10 +1,11 @@
 <?php
-include "php/data.php";
+include "php/init.php";
 
-// print "<pre>";
-// print_r($categories);
-// print_r($books);
-// print "</pre>";
+if(isset($_GET["category"])){
+    $filter_category = $_GET["category"];
+} else {
+    $filter_category = "all";
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +25,16 @@ include "php/data.php";
     <script src="js/shelf.js" defer></script>
 </head>
 <body>
-    <?php require "php/partials/header.php"; ?>
+    <?php 
+        require_once "php/partials/header.php"; 
+        if(isset($_GET["addbook"]) && $_GET["addbook"] === "1"){
+            echo "<div class='notification'>
+                    <i class='fa-solid fa-check'></i>
+                    <p>Livro adicionado com sucesso!</p>
+                    <i class='fa-regular fa-circle-xmark' id='remove_notification'></i>
+                  </div>";
+        }
+    ?>
     <main>
         <section class="shelf_navbar">
             <div class="shelf_navbar_title">
@@ -36,33 +46,49 @@ include "php/data.php";
                     <input type="text" name="search" id="search" class="input" placeholder=" ">
                     <label for="search" class="user_label">Pesquisa</label>
                 </div>
-                <button class="filter_buttons focus">Tudo</button>
-                <?php
-                    foreach($categories as $category => $value_category){
-                        print "<button class='filter_buttons' id='$category'>$value_category</button>";
-                    }
-                ?>
+                <form action="shelf.php" method="GET">
+                    <select name="category" id="category" class="input" onchange="this.form.submit()">
+                        <option value="all">Tudo</option>
+                             <?php foreach ($categories as $category): ?>
+                                    <?php if($category["parent_id"] == null): ?>
+                                    <option value="<?= $category['name'] ?>"
+                                        <?= ($filter_category == $category['name']) ? 'selected' : '' ?>>
+                                        <?= $category['name'] ?>
+                                    </option>
+                                    <?php endif; ?>
+                            <?php endforeach; ?>
+                    </select>
+                </form>
                 <a href="register_book.php" class="buttons">Cadastrar Livro</a>
             </div>
         </section>
         <section class="shelf">
             <?php
-                foreach($books as $book){
-                    echo "<div class='book'>
-                            <a href='product.php'>
-                                <img src='$book[cover_img_path]' class='book_cover'>
-                                <div class='book_info'>
-                                    <p class='book_genre'>$book[genre]</p>
-                                    <p class='book_title'>$book[title]</p>
-                                    <p class='book_author'>$book[author]</p>
-                                    <p class='book_price'>R$ $book[price]</p>
-                                </div>
-                            </a>
-                        </div>";
+                $book_count = 0;
+                foreach($_SESSION["books"] as $book){
+                    if($filter_category == $book['genre'] || $filter_category == "all"){
+                        echo "<div class='book'>
+                                <a href='product.php?id=$book[id]'>
+                                    <img src='$book[cover_img_path]' class='book_cover'>
+                                    <div class='book_info'>
+                                        <p class='book_genre'>$book[genre]</p>
+                                        <p class='book_title'>$book[title]</p>
+                                        <p class='book_author'>$book[author]</p>
+                                        <p class='book_price'>R$ $book[price]</p>
+                                    </div>
+                                </a>
+                              </div>";
+
+                        $book_count++;
+                    }
                 }
+
+                if($book_count == 0){
+                    echo "<h1>Livros não encontrados!</h1>";
+                };
             ?>
         </section>
     </main>
-    <?php require "php/partials/footer.php"; ?>
+    <?php require_once "php/partials/footer.php"; ?>
 </body>
 </html>

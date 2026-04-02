@@ -1,4 +1,4 @@
-<?php include "php/data.php"; ?>
+<?php include "php/init.php"; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,12 +16,12 @@
     <script src="js/index.js" defer></script>
 </head>
 <body>
-    <?php require "php/partials/header.php" ?>
+    <?php require_once "php/partials/header.php" ?>
     <main>
         <h1>Página não encontrada!</h1>
         <img src="img/404.png">
         <a href="index.php">Voltar à navegação</a>
     </main>
-    <?php require "php/partials/footer.php"; ?>
+    <?php require_once "php/partials/footer.php"; ?>
 </body>
 </html>

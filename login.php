@@ -1,4 +1,4 @@
-<?php include "php/data.php"; ?>
+<?php include "php/init.php"; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,7 +16,7 @@
     <script src="js/index.js" defer></script>
 </head>
 <body>
-    <?php require "php/partials/header.php"; ?>
+    <?php require_once "php/partials/header.php"; ?>
     <main>
         <form action="php/conn.php" method="POST">
             <h1>Login</h1>
@@ -32,6 +32,6 @@
             <p>Não tem uma conta? <a href="register.php">Cadastre-se aqui</a></p>
         </form>
     </main>
-    <?php require "php/partials/footer.php"; ?>
+    <?php require_once "php/partials/footer.php"; ?>
 </body>
 </html>

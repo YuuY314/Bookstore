@@ -1,4 +1,29 @@
-<?php include "php/data.php"; ?>
+<?php
+include "php/init.php";
+
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+    $ids = array_column($_SESSION["books"], "id");
+    $new_id = $ids ? max($ids) + 1: 1;
+
+    if($_POST["cover_img_path"] == null){
+        $cover_img_path = "img/books/default-book.jpg";
+    } else {
+        $cover_img_path = $_POST["cover_img_path"];
+    }
+
+    $_SESSION["books"][] = [
+        "id" => $new_id, 
+        "title" => $_POST["title"],
+        "author" => $_POST["author"],
+        "genre" => $_POST["genre"],
+        "price" => $_POST["price"],
+        "cover_img_path" => $cover_img_path
+    ];
+
+    header("Location: shelf.php?addbook=1");
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,9 +42,9 @@
     <script src="js/register_book.js" defer></script>
 </head>
 <body>
-    <?php require "php/partials/header.php"; ?>
+    <?php require_once "php/partials/header.php"; ?>
     <main>
-        <form>
+        <form action="register_book.php" method="POST">
             <h1>Cadastro de Livro</h1>
             <div class="input_group">
                 <input type="text" class="input" name="title" id="title" placeholder=" " required>
@@ -31,14 +56,12 @@
             </div>
             <div class="input_group">
                 <select name="genre" id="genre" required class="input">
-                    <option value="Fantasia">Fantasia</option>
-                    <option value="Ficção Científica">Ficção Científica</option>
-                    <option value="Ficção Contemporânea">Ficção Contemporânea</option>
-                    <option value="Romance">Romance</option>
-                    <option value="Suspense">Suspense</option>
-                    <option value="Terror">Terror</option>
-                    <option value="Biografia">Biografia</option>
-                    <option value="Autoajuda">Autoajuda</option>
+                    <?php foreach($categories as $category){
+                            if ($category["parent_id"] == null){
+                                echo "<option value='" . $category['name'] . "'>" . $category['name'] . "</option>";
+                            }
+                    }
+                    ?>
                 </select>
             </div>
             <div class="input_group">
@@ -46,18 +69,22 @@
                 <label for="price" class="user_label">Preço (R$)</label>
             </div>
             <div class="input_group">
+                <input type="text" class="input" name="cover_img_path" id="cover_img_path" placeholder=" ">
+                <label for="cover_img_path" class="user_label">Capa do Livro (URL)</label>
+            </div>
+            <!-- <div class="input_group">
                 <label class="file_upload">
                     Capa do Livro
                     <input type="file" name="cover_img" id="cover_img">
                 </label>
                 <span id="file_name">Nenhum arquivo escolhido</span>
-            </div>
+            </div> -->
             <div>
                 
             </div>
             <input type="submit" class="submit">
         </form>
     </main>
-    <?php require "php/partials/footer.php"; ?>
+    <?php require_once "php/partials/footer.php"; ?>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <header>
     <div class="logo">
         <a href="index.php">
-            <img src="img/black_logo.png">
+            <img src="img/black_logo.png" id="header_logo">
             <h1><?php print $store_name; ?></h1>
         </a>
     </div>

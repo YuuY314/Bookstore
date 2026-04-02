@@ -2,7 +2,7 @@
     <div class="socials">
         <div class="logo">
             <a href="index.php">
-                <img src="img/white_logo.png">
+                <img src="img/white_logo.png" id="footer_logo">
                 <h1><?php print $store_name; ?></h1>
             </a>
             <p>Desperte o seu hábito de leitura conosco!</p>

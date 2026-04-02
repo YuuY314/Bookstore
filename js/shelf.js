@@ -6,3 +6,17 @@ filterButtons.forEach((filterButton) => {
         filterButton.classList.add("focus");
     })
 })
+
+const removeNotificationBtn = document.querySelector("#remove_notification");
+
+removeNotificationBtn.addEventListener("click", (e) => {
+    let notification = e.target.closest(".notification");
+
+    if(notification){
+        notification.classList.add("closing");
+
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    };
+});
