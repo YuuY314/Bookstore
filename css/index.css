@@ -358,30 +358,3 @@ footer .follow_us i {
     font-size: 2rem;
     color: var(--background);
 }
-
-.success-card {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 25px;
-    text-align: center;
-    border-radius: 12px;
-    background: #ffffff;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-}
-
-.success-card .icon {
-    font-size: 40px;
-    color: #28a745;
-    margin-bottom: 10px;
-}
-
-.success-card h3 {
-    margin: 10px 0;
-    font-size: 22px;
-    color: #333;
-}
-
-.aviso {
-    padding-top: 200px;
-}
