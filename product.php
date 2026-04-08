@@ -2,14 +2,21 @@
 include "php/init.php"; 
 
 if(isset($_GET["id"])){
-    $id = $_GET["id"];
+    $id = (int) $_GET["id"];
+} else {
+    $id = 0;
 }
 
-// echo "<pre>";
-// foreach($_SESSION["books"] as $book){
-//     echo $book["title"] . "<br>";
-// }
-// echo "</pre>";
+$ids = array_column($_SESSION["books"], "id");
+
+$index = array_search($id, $ids);
+
+if($index !== false){
+    $book = $_SESSION["books"][$index];
+} else {
+    header("Location: 404.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,81 +39,45 @@ if(isset($_GET["id"])){
     <main>
         <section class="product_container">
             <?php
-                foreach($_SESSION["books"] as $book){
-                    if($book["id"] == $id){
-                        $rating = $book["rating"] ?? 0;
+                $rating = $book["rating"] ?? 0;
 
-                        $full = floor($rating);
-                        $hasDecimal = ($rating - $full) > 0;
+                $stars = "";
 
-                        $half = $hasDecimal ? 1 : 0;
-
-                        if ($rating == 5) {
-                            $full = 5;
-                            $half = 0;
-                        }
-
-                        $empty = 5 - $full - $half;
-
-                        $stars = str_repeat("<i class='fa-solid fa-star'></i>", $full);
-                        $stars .= str_repeat("<i class='fa-solid fa-star-half-stroke'></i>", $half);
-                        $stars .= str_repeat("<i class='fa-regular fa-star'></i>", $empty);
-
-                        echo "<img src='" . $book["cover_img_path"] . "' class='product_cover'>
-                              <div class='product_info'>
-                                    <div class='product_title'>
-                                        <h1>" . $book["title"] . "</h1>
-                                        <p>" . $book["author"] . "</p>
-                                    </div>
-                                    <div class='product_review'>
-                                        <div>
-                                            $stars
-                                        </div>
-                                        <p>" . $book["rating"] . " (" . $book["review_count"] . ")</p>
-                                    </div>
-                                    <div class='product_price'>
-                                        R$ ". $book["price"] .
-                                    "</div>
-                                    <div class='product_details'>
-                                        <p>Gênero: ". $book["genre"] . "</p>
-                                        <p>Editora: ". $book["publisher"] . "</p>
-                                        <p>Data de publicação: " . $book["release_date"] . "</p>
-                                        <p>Quantidade de páginas: " . $book["page_count"] . "</p>
-                                        <p>Dimensões: " . $book["dimensions"] . " cm</p>
-                                    </div>
-                                    <a href='' class='buttons'>Adicionar ao carrinho</a>
-                                </div>";
+                for($i = 1; $i <= 5; $i++){
+                    if($rating >= $i){
+                        $stars .= "<i class='fa-solid fa-star'></i>";
+                    } elseif($rating >= $i - 0.5) {
+                        $stars .= "<i class='fa-solid fa-star-half-stroke'></i>";
+                    } else {
+                        $stars .= "<i class='fa-regular fa-star'></i>";
                     }
                 }
-                ?>
-            <!-- <img src="img/top_rated/a_guerra_dos_tronos.jpg" class="product_cover">
-            <div class="product_info">
-                <div class="product_title">
-                    <h1>A Guerra dos Tronos</h1>
-                    <p>George R. R. Martin</p>
-                </div>
-                <div class="product_review">
-                    <div>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half"></i>
-                    </div>
-                    <p>4.8 (314)</p>
-                </div>
-                <div class="product_price">
-                    R$ 69.99
-                </div>
-                <div class="product_details">
-                    <p>Gênero: Fantasia</p>
-                    <p>Editora: Suma</p>
-                    <p>Data de publicação: 29/11/2019</p>
-                    <p>Quantidade de páginas: 898</p>
-                    <p>Dimensões: 22,8 x 15,6 x 3,2 cm</p>
-                </div>
-                <a href="" class="buttons">Adicionar ao carrinho</a>
-            </div> -->
+
+                echo "<img src='" . $book["cover_img_path"] . "' class='product_cover'>
+                        <div class='product_info'>
+                            <div class='product_title'>
+                                <h1>" . $book["title"] . "</h1>
+                                <p>" . $book["author"] . "</p>
+                            </div>
+                            <div class='product_review'>
+                                <div>
+                                    $stars
+                                </div>
+                                <p>" . $book["rating"] . " (" . $book["review_count"] . ")</p>
+                            </div>
+                            <div class='product_price'>
+                                R$ ". $book["price"] .
+                            "</div>
+                            <div class='product_details'>
+                                <p>Gênero: ". $book["genre"] . "</p>
+                                <p>Editora: ". $book["publisher"] . "</p>
+                                <p>Data de publicação: " . $book["release_date"] . "</p>
+                                <p>Quantidade de páginas: " . $book["page_count"] . "</p>
+                                <p>Dimensões: " . $book["dimensions"] . " cm</p>
+                            </div>
+                            <a href='' class='buttons'>Adicionar ao carrinho</a>
+                        </div>";
+            ?>
         </section>
     </main>
     <?php require_once "php/partials/footer.php" ?>

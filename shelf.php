@@ -2,7 +2,6 @@
 include "php/init.php";
 
 $filter_category = $_GET["category"] ?? [];
-$filter_subcategory = $_GET["subcategory"] ?? [];
 ?>
 
 <!DOCTYPE html>
@@ -36,31 +35,16 @@ $filter_subcategory = $_GET["subcategory"] ?? [];
         <aside class="sidebar">
             <form action="shelf.php" method="GET">
                 <h2>Categorias</h2>
-                <?php foreach ($categories as $parent): ?>
-                    <?php if ($parent['parent_id'] === null): ?>
-                        <?php if (isset($childrenMap[$parent['id']])): ?>
-                            <details>
-                                <summary>
-                                    <label>
-                                        <input name="category[]" type="checkbox" value="<?= $parent['name'] ?>" <?= in_array($parent['name'], $filter_category) ? 'checked' : '' ?>>
-                                        <?= $parent['name'] ?>
-                                    </label>
-                                </summary>
-                                <?php foreach ($childrenMap[$parent['id']] as $child): ?>
-                                    <label style="margin-left: 10px;">
-                                        <input name="subcategory[]" type="checkbox" value="<?= $child['name'] ?>" <?= in_array($child['name'], $filter_subcategory) ? 'checked' : '' ?>>
-                                        <?= $child['name'] ?>
-                                    </label><br>
-                                <?php endforeach; ?>
-                            </details>
-                        <?php else: ?>
-                            <label>
-                                <input name="category[]" type="checkbox" value="<?= $parent['name'] ?>" <?= in_array($parent['name'], $filter_category) ? 'checked' : '' ?>>
-                                <?= $parent['name'] ?>
-                            </label><br>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                <?php
+                    foreach($categories as $category){
+                        if($category["parent_id"] === null){
+                            echo "<label>
+                                    <input name='category[]' type='checkbox' value='" . $category['name']. "'" . (in_array($category['name'], $filter_category) ? 'checked' : '') . ">
+                                    <span>" . $category['name'] . "</span>
+                                </label><br>";
+                        }
+                    }
+                ?>
                 <button type="submit">Filtrar</button>
             </form>
         </aside>
@@ -75,19 +59,6 @@ $filter_subcategory = $_GET["subcategory"] ?? [];
                         <input type="text" name="search" id="search" class="input" placeholder=" ">
                         <label for="search" class="user_label">Pesquisa</label>
                     </div>
-                    <!-- <form action="shelf.php" method="GET">
-                        <select name="category" id="category" class="input" onchange="this.form.submit()">
-                            <option value="all">Tudo</option>
-                                <?php foreach ($categories as $category): ?>
-                                        <?php if($category["parent_id"] == null): ?>
-                                        <option value="<?= $category['name'] ?>"
-                                            <?= ($filter_category == $category['name']) ? 'selected' : '' ?>>
-                                            <?= $category['name'] ?>
-                                        </option>
-                                        <?php endif; ?>
-                                <?php endforeach; ?>
-                        </select>
-                    </form> -->
                     <a href="register_book.php" class="buttons">Cadastrar Livro</a>
                 </div>
             </section>
@@ -95,7 +66,7 @@ $filter_subcategory = $_GET["subcategory"] ?? [];
                 <?php
                     $book_count = 0;
                     foreach($_SESSION["books"] as $book){
-                        if((empty($filter_category) || in_array($book['genre'], $filter_category)) && (empty($filter_subcategory) || !empty(array_intersect($book['sub_genre'], $filter_subcategory)))){
+                        if(empty($filter_category) || in_array($book['genre'], $filter_category)){
                             echo "<div class='book'>
                                     <a href='product.php?id=$book[id]'>
                                         <img src='$book[cover_img_path]' class='book_cover'>

@@ -184,11 +184,11 @@ $categories = [
     ]
 ];
 
-$childrenMap = [];
+$childrenCategory = [];
 
 foreach($categories as $category){
     if($category["parent_id"] != null){
-        $childrenMap[$category["parent_id"]][] = $category;
+        $childrenCategory[$category["parent_id"]][] = $category;
     }
 }
 
@@ -198,7 +198,6 @@ $books = [
         "title" => "A Guerra dos Tronos",
         "author" => "George R. R. Martin",
         "genre" => "Fantasia",
-        "sub_genre" => [],
         "price" => 64.99,
         "cover_img_path" => "img/books/a_guerra_dos_tronos.jpg",
         "rating" => 4.8,
@@ -213,7 +212,6 @@ $books = [
         "title" => "Verity",
         "author" => "Colleen Hoover",
         "genre" => "Suspense",
-        "sub_genre" => [],
         "price" => 42.99,
         "cover_img_path" => "img/books/verity.jpg",
         "rating" => 4.5,
@@ -227,8 +225,7 @@ $books = [
         "id" => 3,
         "title" => "A Biblioteca da Meia-Noite",
         "author" => "Matt Haig",
-        "genre" => "Ficção Contemporânea",
-        "sub_genre" => [],
+        "genre" => "Ficção",
         "price" => 37.99,
         "cover_img_path" => "img/books/a_biblioteca_da_meia_noite.jpg",
         "rating" => 4.6,
@@ -243,9 +240,6 @@ $books = [
         "title" => "O Hobbit",
         "author" => "J. R. R. Tolkien",
         "genre" => "Fantasia",
-        "sub_genre" => [
-            "Alta Fantasia"
-        ],
         "price" => 34.99,
         "cover_img_path" => "img/books/o-hobbit-harpercollins.jpg",
         "rating" => 4.7,
@@ -260,111 +254,98 @@ $books = [
         "title" => "Corte de Espinhos e Rosas",
         "author" => "Sarah J. Maas",
         "genre" => "Fantasia",
-        "sub_genre" => [],
         "price" => 39.99,
         "cover_img_path" => "img/books/corte_de_espinhos_e_rosas.jpg",
         "rating" => 4.2,
         "review_count" => 152,
         "publisher" => "Galera Record",
-        "release_date" => "05/05/2015",
+        "release_date" => "09/10/2015",
         "page_count" => 432,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "23 x 15,6 x 2,3"
     ],
     [
         "id" => 6,
         "title" => "Mulher em Queda",
         "author" => "Colleen Hoover",
         "genre" => "Ficção",
-        "sub_genre" => [
-            "Ficção Contemporânea"
-        ],
         "price" => 79.99,
         "cover_img_path" => "img/books/mulher_em_queda.jpg",
         "rating" => 4.4,
         "review_count" => 52,
         "publisher" => "Galera Record",
-        "release_date" => "02/01/2018",
+        "release_date" => "13/01/2026",
         "page_count" => 448,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "23 x 16 x 2"
     ],
     [
         "id" => 7,
         "title" => "Querida Debbie",
         "author" => "Freida McFadden",
         "genre" => "Suspense",
-        "sub_genre" => [],
         "price" => 69.99,
         "cover_img_path" => "img/books/querida_debbie.jpg",
         "rating" => 4.1,
         "review_count" => 35,
         "publisher" => "Arqueiro",
-        "release_date" => "2022",
+        "release_date" => "03/03/2026",
         "page_count" => 240,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "23 x 16 x 2"
     ],
     [
         "id" => 8,
         "title" => "Suíte Tóquio",
         "author" => "Giovana Madalosso",
         "genre" => "Ficção",
-        "sub_genre" => [
-            "Ficção Contemporânea"
-        ],
         "price" => 49.99,
         "cover_img_path" => "img/books/suite_toquio.jpg",
         "rating" => 4.3,
         "review_count" => 15,
         "publisher" => "Todavia",
-        "release_date" => "2020",
+        "release_date" => "10/09/2020",
         "page_count" => 192,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "21 x 14 x 1,5"
     ],
     [
         "id" => 9,
         "title" => "Os Sete Maridos de Evelyn Hugo",
         "author" => "Taylor Jenkins Reid",
         "genre" => "Ficção",
-        "sub_genre" => [
-            "Ficção Contemporânea"
-        ],
         "price" => 54.99,
         "cover_img_path" => "img/books/os_sete_maridos_de_evelyn_hugo.jpg",
         "rating" => 4.1,
         "review_count" => 23,
         "publisher" => "Paralela",
-        "release_date" => "13/06/2017",
+        "release_date" => "21/10/2019",
         "page_count" => 360,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "23 x 16 x 2"
     ],
     [
         "id" => 10,
         "title" => "O Príncipe Cruel",
         "author" => "Holly Black",
         "genre" => "Fantasia",
-        "sub_genre" => [],
         "price" => 44.99,
         "cover_img_path" => "img/books/o-principe-cruel-galera-record.jpg",
         "rating" => 4.0,
         "review_count" => 123,
         "publisher" => "Galera Record",
-        "release_date" => "02/01/2018",
+        "release_date" => "10/09/2018",
         "page_count" => 384,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "23 x 16 x 1,8"
     ],
     [
         "id" => 11,
         "title" => "Quinze Dias",
         "author" => "Vitor Martins",
         "genre" => "Jovem Adulto",
-        "sub_genre" => [],
         "price" => 34.99,
         "cover_img_path" => "img/books/quinze_dias.jpg",
         "rating" => 4.2,
         "review_count" => 13,
         "publisher" => "Alt",
-        "release_date" => "2017",
+        "release_date" => "02/06/2017",
         "page_count" => 192,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "21 x 14 x 1,5"
 
     ],
     [
@@ -372,99 +353,90 @@ $books = [
         "title" => "Dom Casmurro",
         "author" => "Machado de Assis",
         "genre" => "Romance",
-        "sub_genre" => [],
         "price" => 24.99,
         "cover_img_path" => "img/books/dom_casmurro.jpg",
         "rating" => 4.2,
         "review_count" => 983,
         "publisher" => "Principis",
-        "release_date" => "1899",
+        "release_date" => "02/05/2019",
         "page_count" => 256,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "21 x 14 x 2"
     ],
     [
         "id" => 13,
         "title" => "1984",
         "author" => "George Orwell",
         "genre" => "Ficção",
-        "sub_genre" => [
-            "Ficção Distópica"
-        ],
         "price" => 24.99,
         "cover_img_path" => "img/books/1984.jpg",
         "rating" => 4.4,
         "review_count" => 760,
         "publisher" => "Principis",
-        "release_date" => "08/06/1949",
+        "release_date" => "01/01/2021",
         "page_count" => 328,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "21 x 14 x 2"
     ],
     [
         "id" => 14,
         "title" => "O Grande Gatsby",
         "author" => "F. Scott Fitzgerald",
         "genre" => "Romance",
-        "sub_genre" => [],
         "price" => 37.99,
         "cover_img_path" => "img/books/o_grande_gatsby.jpg",
         "rating" => 4.5,
         "review_count" => 437,
         "publisher" => "Excelsior",
-        "release_date" => "10/04/1925",
+        "release_date" => "05/07/2021",
         "page_count" => 180,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "21 x 14 x 1,5"
     ],
     [
         "id" => 15,
         "title" => "Crime e Castigo",
         "author" => "Fiódor Dostoiévski",
         "genre" => "Romance",
-        "sub_genre" => [],
         "price" => 59.99,
         "cover_img_path" => "img/books/crime_e_castigo.jpg",
         "rating" => 4.3,
         "review_count" => 326,
         "publisher" => "Editora 34",
-        "release_date" => "1866",
+        "release_date" => "23/08/2001",
         "page_count" => 576,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "23 x 16 x 4"
     ],
     [
         "id" => 16,
         "title" => "Orgulho e Preconceito",
         "author" => "Jane Austen",
         "genre" => "Romance",
-        "sub_genre" => [],
         "price" => 39.99,
         "cover_img_path" => "img/books/orgulho-e-preconceito-garnier.jpg",
         "rating" => 4.6,
         "review_count" => 236,
         "publisher" => "Garnier",
-        "release_date" => "28/01/1813",
+        "release_date" => "15/08/2022",
         "page_count" => 432,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "23 x 16 x 2"
     ],
     [
         "id" => 17,
         "title" => "Frankenstein",
         "author" => "Mary Shelly",
         "genre" => "Terror",
-        "sub_genre" => [],
         "price" => 34.99,
         "cover_img_path" => "img/books/frankenstein.jpg",
         "rating" => 4.5,
         "review_count" => 568,
         "publisher" => "Via Leitura",
-        "release_date" => "01/01/1818",
+        "release_date" => "01/01/2017",
         "page_count" => 280,
-        "dimensions" => "22,8 x 15,6 x 3,2"
+        "dimensions" => "23 x 16 x 2"
     ],
     [
         "id" => 18,
         "title" => "Cinquenta Tons de Cinza",
         "author" => "E. L. James",
         "genre" => "Romance",
-        "sub_genre" => [],
         "price" => 49.99,
         "cover_img_path" => "img/books/cinquenta_tons_de_cinza.jpg",
         "rating" => 2.5,

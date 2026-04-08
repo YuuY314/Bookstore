@@ -32,61 +32,43 @@
                 <p>Veja o que os leitores estão curtindo</p>
             </div>
             <div id="top_rated_container">
-                <div class="book">
-                    <a href="product.php">
-                        <img src="img/top_rated/verity.jpg" class="book_cover">
-                        <div class="book_info">
-                            <p class="book_genre">Suspense</p>
-                            <p class="book_title">Verity</p>
-                            <p class="book_author">Colleen Hoover</p>
-                            <p class="book_price">R$ 42,99</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="book">
-                    <a href="product.php">
-                        <img src="img/top_rated/a_biblioteca_da_meia_noite.jpg" class="book_cover">
-                        <div class="book_info">
-                            <p class="book_genre">Ficção Contemporânea</p>
-                            <p class="book_title">A Biblioteca da Meia-Noite</p>
-                            <p class="book_author">Matt Haig</p>
-                            <p class="book_price">R$ 37,99</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="book">
-                    <a href="product.php">
-                        <img src="img/top_rated/corte_de_espinhos_e_rosas.jpg" class="book_cover">
-                        <div class="book_info">
-                            <p class="book_genre">Fantasia</p>
-                            <p class="book_title">Corte de Espinhos e Rosas</p>
-                            <p class="book_author">Sarah J. Maas</p>
-                            <p class="book_price">R$ 39,99</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="book">
-                    <a href="product.php">
-                        <img src="img/top_rated/a_guerra_dos_tronos.jpg" class="book_cover">
-                        <div class="book_info">
-                            <p class="book_genre">Fantasia</p>
-                            <p class="book_title">A Guerra dos Tronos</p>
-                            <p class="book_author">George R. R. Martin</p>
-                            <p class="book_price">R$ 64,99</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="book">
-                    <a href="product.php">
-                        <img src="img/top_rated/o_hobbit.jpg" class="book_cover">
-                        <div class="book_info">
-                            <p class="book_genre">Fantasia</p>
-                            <p class="book_title">O Hobbit</p>
-                            <p class="book_author">J. R. R. Tolkien</p>
-                            <p class="book_price">R$ 34,99</p>
-                        </div>
-                    </a>
-                </div>
+                <?php
+                    $top_rated_books = [];
+
+                    foreach($_SESSION["books"] as $book){
+                        $top_rated_books[] = ["id" => $book["id"], "rating" => $book["rating"]];
+                    }
+
+                    for($i = 0; $i < count($top_rated_books) - 1; $i++){
+                        for($j = 0; $j < count($top_rated_books) - 1 - $i; $j++){
+                            if($top_rated_books[$j]["rating"] < $top_rated_books[$j+1]["rating"]){
+                                $temp = $top_rated_books[$j];
+                                $top_rated_books[$j] = $top_rated_books[$j+1];
+                                $top_rated_books[$j+1] = $temp;
+                            }
+                        }
+                    }
+                    
+                    $top_rated_books = array_slice($top_rated_books, 0, 5);
+
+                    $top_rated_ids = array_column($top_rated_books, "id");
+
+                    foreach($_SESSION["books"] as $book){
+                        if(in_array($book["id"], $top_rated_ids)){
+                            echo "<div class='book'>
+                                    <a href='product.php?id=$book[id]'>
+                                        <img src='$book[cover_img_path]' class='book_cover'>
+                                        <div class='book_info'>
+                                            <p class='book_genre'>$book[genre]</p>
+                                            <p class='book_title'>$book[title]</p>
+                                            <p class='book_author'>$book[author]</p>
+                                            <p class='book_price'>R$ $book[price]</p>
+                                        </div>
+                                    </a>
+                                </div>";
+                        }
+                    }
+                ?>
             </div>
         </section>
         <section id="new_releases" class="book_carousel">
